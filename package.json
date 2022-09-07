@@ -50,6 +50,7 @@
     "@tableland/cli": "^3.1.1",
     "@tableland/sdk": "^3.1.0",
     "fetch": "^1.1.0",
+    "fs": "^0.0.1-security",
     "global": "^4.4.0"
   },
   "devDependencies": {

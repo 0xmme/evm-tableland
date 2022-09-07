@@ -99,6 +99,16 @@ const config: HardhatUserConfig = {
           ? [process.env.OPTIMISM_GOERLI_PRIVATE_KEY]
           : [],
     },
+    "optimism-kovan": {
+      url: `https://optimism-kovan.infura.io/v3/${
+        process.env.OPTIMISM_KOVAN_API_KEY ?? ""
+      }`,
+      accounts:
+        process.env.OPTIMISM_KOVAN_PRIVATE_KEY !== undefined
+          ? [process.env.OPTIMISM_KOVAN_PRIVATE_KEY]
+          : [],
+    },
+
     "polygon-mumbai": {
       url: `https://polygon-mumbai.g.alchemy.com/v2/${
         process.env.POLYGON_MUMBAI_API_KEY ?? ""

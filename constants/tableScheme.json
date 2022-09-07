@@ -1,0 +1,8 @@
+{
+  "tablesToCreate": [
+    {
+      "prefix": "Campaign",
+      "schema": "id INTEGER, duration_campaign INTEGER, PRIMARY_KEY (id)"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "5": [],
+  "10": [],
+  "69": [
+    {
+      "prefix": "AdSpace",
+      "name": "AdSpace_69_39",
+      "chainId": 69,
+      "txnHash": "0xd930e6ac7420162c77f732a6b55912801963f86d31b785904bb0f47b14639f47",
+      "schema": "id integer NOT NULL, website text, verified integer, status text, owner text, contract text, asking_price integer, PRIMARY KEY (id)"
+    },
+    {
+      "prefix": "AdSpace",
+      "name": "AdSpace_69_40",
+      "chainId": 69,
+      "txnHash": "0x5b482905c175bdbadce719362663c6ed82645ce10b4dfaf6fdb28be57dbbaed6",
+      "schema": "adspace_id INTEGER NOT NULL, website TEXT, verified INTEGER, status TEXT, owner TEXT, contract TEXT, asking_price INTEGER, PRIMARY KEY (adspace_id)"
+    },
+    {
+      "prefix": "AdSpace",
+      "name": "AdSpace_69_41",
+      "chainId": 69,
+      "txnHash": "0x419f924873b72de19754f5ab0f4513c2562c2fbb05d939a754d1fc9652f3590f",
+      "schema": "adspace_id INTEGER, website TEXT, verified INTEGER, status TEXT, owner TEXT, contract TEXT, asking_price INTEGER, PRIMARY KEY (adspace_id)"
+    },
+    {
+      "prefix": "AdSpace",
+      "name": "AdSpace_69_42",
+      "chainId": 69,
+      "txnHash": "0xb7b8d4d60eed0abff8ae58068a62f4d8e324a32fa547dac7b5825ae1a351c6ce",
+      "schema": "adspace_id INTEGER, website TEXT, verified INTEGER, status TEXT, owner TEXT, contract TEXT, asking_price INTEGER, PRIMARY KEY (adspace_id)"
+    },
+    {
+      "prefix": "AdSpace",
+      "name": "AdSpace_69_43",
+      "chainId": 69,
+      "txnHash": "0xefd72fd174ca007e5a4c9faea3c0da18976d99a54c657940c69f8d81265181c0",
+      "schema": "adspace_id INTEGER, website TEXT, verified INTEGER, status TEXT, owner TEXT, contract TEXT, asking_price INTEGER, PRIMARY KEY (adspace_id)"
+    },
+    {
+      "prefix": "AdSpace",
+      "name": "AdSpace_69_44",
+      "chainId": 69,
+      "txnHash": "0x8ff18bef378af70f07e72e097ea7e04936549586daadc38561720f62747404d4",
+      "schema": "adspace_id INTEGER, website TEXT, verified INTEGER, status TEXT, owner TEXT, contract TEXT, asking_price INTEGER, PRIMARY KEY (adspace_id)"
+    },
+    {
+      "prefix": "AdSpace",
+      "name": "AdSpace_69_45",
+      "chainId": 69,
+      "txnHash": "0xa35c445a0716c8c73c1ac21d2a1d08aa4bb0423b5d8d4228913542c9060ade6d",
+      "schema": "id INTEGER, website TEXT, verified INTEGER, status TEXT, owner TEXT, contract TEXT, asking_price INTEGER, PRIMARY KEY (id)"
+    },
+    {
+      "prefix": "AdSpace",
+      "name": "AdSpace_69_46",
+      "chainId": 69,
+      "txnHash": "0x18a55ac9f95c3020673b8ddbba75076d8ec81b86ce5266698c06fc940027dbd1",
+      "schema": "id INTEGER, website TEXT, verified INTEGER, status TEXT, owner TEXT, contract TEXT, asking_price INTEGER, PRIMARY KEY (id)"
+    },
+    {
+      "prefix": "AdSpace",
+      "name": "AdSpace_69_47",
+      "chainId": 69,
+      "txnHash": "0x82b0753c75a916a1d18500066ad0fcb4f11cce827e1b74cb14b859e15b896b02",
+      "schema": "id INTEGER, website TEXT, verified INTEGER, status TEXT, owner TEXT, contract TEXT, asking_price INTEGER, PRIMARY KEY (id)"
+    }
+  ],
+  "420": [],
+  "31337": []
+}
