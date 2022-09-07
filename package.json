@@ -19,7 +19,7 @@
     "./contracts/": "./contracts/"
   },
   "scripts": {
-    "build": "npm run tsc -p ./tsconfig.build.json",
+    "build": "tsc -p ./tsconfig.build.json",
     "clean": "rm -rf artifacts && rm -rf typechain-types && rm -rf cache && rm -rf coverage && rm -f coverage.json",
     "up": "npm install && npx hardhat compile && npm run build && hardhat node",
     "test": "hardhat coverage && istanbul check-coverage ./coverage.json --statements 100 --branches 96 --functions 100 --lines 100",
@@ -49,10 +49,8 @@
   "dependencies": {
     "@tableland/cli": "^3.1.1",
     "@tableland/sdk": "^3.1.0",
-    "cross-fetch": "^3.1.5",
     "fetch": "^1.1.0",
-    "global": "^4.4.0",
-    "node-fetch": "^3.2.10"
+    "global": "^4.4.0"
   },
   "devDependencies": {
     "@ethersproject/providers": "^5.6.8",

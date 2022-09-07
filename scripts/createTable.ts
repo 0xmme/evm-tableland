@@ -1,46 +1,42 @@
 /* eslint-disable no-unused-vars */
 import { ethers, network } from "hardhat";
+import { Wallet } from "ethers";
 import { connect } from "@tableland/sdk";
-import fetch, { Headers, Request, Response } from "cross-fetch";
-
-if (!globalThis.fetch) {
-  globalThis.fetch = fetch;
-  globalThis.Headers = Headers;
-  globalThis.Request = Request;
-  globalThis.Response = Response;
-}
 
 async function main() {
   console.log(`\nCreating table on '${network.name}'...`);
 
-  // Get signer
-  const [account] = await ethers.getSigners();
-  if (account.provider === undefined) {
-    throw Error("missing provider");
-  }
+  const provider = new ethers.providers.AlchemyProvider(
+    "optimism-goerli",
+    process.env.OPTIMISM_GOERLI_API_KEY!
+  );
+
+  const account = new Wallet(process.env.ETHEREUM_PRIVATE_KEY!, provider);
 
   const tableland = await connect({
     network: "testnet",
-    host: "http://127.0.0.1:8545/",
-    chain: "local-tableland",
+    chain: "optimism-goerli",
     signer: account,
   });
   console.log("-----------------------");
   console.log(tableland);
 
   console.log("-----------------------");
-  const index = await tableland.list();
+  let index = await tableland.list();
   console.log(index);
 
-  // const { name } = await tableland.create(
-  //  `id integer, name text, primary key (id)`, // Table schema definition
-  //  {
-  //    prefix: `my_sdk_table`, // Optional `prefix` used to define a human-readable string
-  //  }
-  // );
+  const { name, chainId, txnHash } = await tableland.create(
+    `id integer, name text, primary key (id)`, // Table schema definition
+    {
+      prefix: `my_third_sdk_table`, // Optional `prefix` used to define a human-readable string
+    }
+  );
 
-  // console.log("-----------------------");
-  // console.log(name);
+  console.log("-----------------------");
+  console.log(name);
+
+  index = await tableland.list();
+  console.log(index);
 }
 
 main().catch((error) => {

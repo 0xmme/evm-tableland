@@ -124,6 +124,9 @@ const config: HardhatUserConfig = {
         interval: [100, 3000],
       },
     },
+    localhost: {
+      url: "http://127.0.0.1:8545/",
+    },
   },
   baseURIs: {
     // mainnets
