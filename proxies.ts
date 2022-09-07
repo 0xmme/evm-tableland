@@ -16,5 +16,5 @@ export const proxies: ProxyAddresses = {
   // tableland staging testnets
   "optimism-kovan-staging": "0x7E57BaA6724c7742de6843094002c4e58FF6c7c3",
   "optimism-goerli-staging": "0xfe79824f6E5894a3DD86908e637B7B4AF57eEE28",
-  localhost: "",
+  localhost: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
 };
