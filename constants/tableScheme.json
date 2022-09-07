@@ -1,6 +1,14 @@
 {
   "tablesToCreate": [
     {
+      "prefix": "AdSpace",
+      "schema": "id INTEGER, website TEXT, verified INTEGER, status TEXT, owner TEXT, contract TEXT, asking_price INTEGER, PRIMARY KEY (id)"
+    },
+    {
+      "prefix": "Deal",
+      "schema": "id INTEGER, campaign_id_fk INTEGER, adspace_id_fk INTEGER, duration_deal INTEGER, price INTEGER, started_at INTEGER, PRIMARY_KEY (id)"
+    },
+    {
       "prefix": "Campaign",
       "schema": "id INTEGER, duration_campaign INTEGER, PRIMARY_KEY (id)"
     }
