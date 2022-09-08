@@ -1,1 +1,173 @@
-{"5":[],"10":[],"69":[{"prefix":"AdSpace","name":"AdSpace_69_70","chainId":69,"txnHash":"0x28ec541cf0829fd1a6d28de6fa50caf3eefd71bbe3dcb32a96d2fce9a3db4d0d","schema":"adspace_id INTEGER PRIMARY KEY UNIQUE, website TEXT, verified INTEGER, status TEXT, owner TEXT, contract TEXT, asking_price INTEGER","data":[[1,"https://loremipsum1.org",1,"status sample text 1","0x0wner01","0xContract01",100000],[2,"https://loremipsum2.org",1,"status sample text 2","0x0wner01","0xContract02",2000000],[3,"https://loremipsum3.org",0,"status sample text 3","0x0wner02","0xContract03",30000000],[4,"https://loremipsum4.org",0,"status sample text 4","0x0wner03","0xContract04",400000000],[5,"https://loremipsum5.org",1,"status sample text 5","0x0wner04","0xContract05",5000000000]]},{"prefix":"Deal","name":"Deal_69_71","chainId":69,"txnHash":"0xfd14956fe5044a3301163bbce3cc76dabfb0e57985100a4333dee90e0a593d9d","schema":"deal_id INTEGER PRIMARY KEY UNIQUE, campaign_id_fk INTEGER, adspace_id_fk INTEGER, duration_deal INTEGER, price INTEGER, started_at INTEGER","data":[[1,1,1,100,10000],[2,1,2,200,200000],[3,1,5,300,3000000],[4,1,1,400,40000000],[5,1,2,500,500000000]]},{"prefix":"Campaign","name":"Campaign_69_72","chainId":69,"txnHash":"0x16b3a5dae24caa0216254bef5109f4044dda34367d2d3f8a8b0af3bfda100d81","schema":"campaign_id INTEGER PRIMARY KEY UNIQUE, duration_campaign INTEGER","data":[[1,1000],[2,2000],[3,3000],[4,4000],[5,5000]]}],"420":[{"prefix":"AdSpace","name":"AdSpace_420_49","chainId":420,"txnHash":"0xa5e0b9e3bdb1cd83e77d092a692595072d667f91233c7561ac61add6062404a0","schema":"adspace_id INTEGER PRIMARY KEY UNIQUE, website TEXT, verified INTEGER, status TEXT, owner TEXT, contract TEXT, asking_price INTEGER","data":[[1,"https://loremipsum1.org",1,"status sample text 1","0x0wner01","0xContract01",100000],[2,"https://loremipsum2.org",1,"status sample text 2","0x0wner01","0xContract02",2000000],[3,"https://loremipsum3.org",0,"status sample text 3","0x0wner02","0xContract03",30000000],[4,"https://loremipsum4.org",0,"status sample text 4","0x0wner03","0xContract04",400000000],[5,"https://loremipsum5.org",1,"status sample text 5","0x0wner04","0xContract05",5000000000]]},{"prefix":"Deal","name":"Deal_420_50","chainId":420,"txnHash":"0xf592015c7ca5f296266c81ed7b427f26d56b4ada0c0188920a3db03cdeabfa5b","schema":"deal_id INTEGER PRIMARY KEY UNIQUE, campaign_id_fk INTEGER, adspace_id_fk INTEGER, duration_deal INTEGER, price INTEGER, started_at INTEGER","data":[[1,1,1,100,10000],[2,1,2,200,200000],[3,1,5,300,3000000],[4,1,1,400,40000000],[5,1,2,500,500000000]]},{"prefix":"Campaign","name":"Campaign_420_51","chainId":420,"txnHash":"0xcdc8ee51f0425b8c5cf47ad9c27cff05c1956213f202f2ee263f57853a5151f0","schema":"campaign_id INTEGER PRIMARY KEY UNIQUE, duration_campaign INTEGER","data":[[1,1000],[2,2000],[3,3000],[4,4000],[5,5000]]}],"31337":[]}
+{
+  "5": [],
+  "10": [],
+  "69": [
+    {
+      "prefix": "AdSpace",
+      "name": "AdSpace_69_70",
+      "chainId": 69,
+      "txnHash": "0x28ec541cf0829fd1a6d28de6fa50caf3eefd71bbe3dcb32a96d2fce9a3db4d0d",
+      "schema": "adspace_id INTEGER PRIMARY KEY UNIQUE, website TEXT, verified INTEGER, status TEXT, owner TEXT, contract TEXT, asking_price INTEGER",
+      "data": [
+        [
+          1,
+          "https://loremipsum1.org",
+          1,
+          "status sample text 1",
+          "0x0wner01",
+          "0xContract01",
+          100000
+        ],
+        [
+          2,
+          "https://loremipsum2.org",
+          1,
+          "status sample text 2",
+          "0x0wner01",
+          "0xContract02",
+          2000000
+        ],
+        [
+          3,
+          "https://loremipsum3.org",
+          0,
+          "status sample text 3",
+          "0x0wner02",
+          "0xContract03",
+          30000000
+        ],
+        [
+          4,
+          "https://loremipsum4.org",
+          0,
+          "status sample text 4",
+          "0x0wner03",
+          "0xContract04",
+          400000000
+        ],
+        [
+          5,
+          "https://loremipsum5.org",
+          1,
+          "status sample text 5",
+          "0x0wner04",
+          "0xContract05",
+          5000000000
+        ]
+      ]
+    },
+    {
+      "prefix": "Deal",
+      "name": "Deal_69_71",
+      "chainId": 69,
+      "txnHash": "0xfd14956fe5044a3301163bbce3cc76dabfb0e57985100a4333dee90e0a593d9d",
+      "schema": "deal_id INTEGER PRIMARY KEY UNIQUE, campaign_id_fk INTEGER, adspace_id_fk INTEGER, duration_deal INTEGER, price INTEGER, started_at INTEGER",
+      "data": [
+        [1, 1, 1, 100, 10000],
+        [2, 1, 2, 200, 200000],
+        [3, 1, 5, 300, 3000000],
+        [4, 1, 1, 400, 40000000],
+        [5, 1, 2, 500, 500000000]
+      ]
+    },
+    {
+      "prefix": "Campaign",
+      "name": "Campaign_69_72",
+      "chainId": 69,
+      "txnHash": "0x16b3a5dae24caa0216254bef5109f4044dda34367d2d3f8a8b0af3bfda100d81",
+      "schema": "campaign_id INTEGER PRIMARY KEY UNIQUE, duration_campaign INTEGER",
+      "data": [
+        [1, 1000],
+        [2, 2000],
+        [3, 3000],
+        [4, 4000],
+        [5, 5000]
+      ]
+    }
+  ],
+  "420": [
+    {
+      "prefix": "AdSpace",
+      "name": "AdSpace_420_49",
+      "chainId": 420,
+      "txnHash": "0xa5e0b9e3bdb1cd83e77d092a692595072d667f91233c7561ac61add6062404a0",
+      "schema": "adspace_id INTEGER PRIMARY KEY UNIQUE, website TEXT, verified INTEGER, status TEXT, owner TEXT, contract TEXT, asking_price INTEGER",
+      "data": [
+        [
+          1,
+          "https://loremipsum1.org",
+          1,
+          "status sample text 1",
+          "0x0wner01",
+          "0xContract01",
+          100000
+        ],
+        [
+          2,
+          "https://loremipsum2.org",
+          1,
+          "status sample text 2",
+          "0x0wner01",
+          "0xContract02",
+          2000000
+        ],
+        [
+          3,
+          "https://loremipsum3.org",
+          0,
+          "status sample text 3",
+          "0x0wner02",
+          "0xContract03",
+          30000000
+        ],
+        [
+          4,
+          "https://loremipsum4.org",
+          0,
+          "status sample text 4",
+          "0x0wner03",
+          "0xContract04",
+          400000000
+        ],
+        [
+          5,
+          "https://loremipsum5.org",
+          1,
+          "status sample text 5",
+          "0x0wner04",
+          "0xContract05",
+          5000000000
+        ]
+      ]
+    },
+    {
+      "prefix": "Deal",
+      "name": "Deal_420_50",
+      "chainId": 420,
+      "txnHash": "0xf592015c7ca5f296266c81ed7b427f26d56b4ada0c0188920a3db03cdeabfa5b",
+      "schema": "deal_id INTEGER PRIMARY KEY UNIQUE, campaign_id_fk INTEGER, adspace_id_fk INTEGER, duration_deal INTEGER, price INTEGER, started_at INTEGER",
+      "data": [
+        [1, 1, 1, 100, 10000],
+        [2, 1, 2, 200, 200000],
+        [3, 1, 5, 300, 3000000],
+        [4, 1, 1, 400, 40000000],
+        [5, 1, 2, 500, 500000000]
+      ]
+    },
+    {
+      "prefix": "Campaign",
+      "name": "Campaign_420_51",
+      "chainId": 420,
+      "txnHash": "0xcdc8ee51f0425b8c5cf47ad9c27cff05c1956213f202f2ee263f57853a5151f0",
+      "schema": "campaign_id INTEGER PRIMARY KEY UNIQUE, duration_campaign INTEGER",
+      "data": [
+        [1, 1000],
+        [2, 2000],
+        [3, 3000],
+        [4, 4000],
+        [5, 5000]
+      ]
+    }
+  ],
+  "31337": []
+}
