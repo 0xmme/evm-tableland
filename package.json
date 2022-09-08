@@ -19,6 +19,8 @@
     "./contracts/": "./contracts/"
   },
   "scripts": {
+    "tableCreateOpKovan": "npx hardhat run scripts/testData/createData.ts --network optimism-kovan",
+    "tableReadOpKovan": "npx hardhat run scripts/testData/readData.ts --network optimism-kovan",
     "build": "tsc -p ./tsconfig.build.json",
     "clean": "rm -rf artifacts && rm -rf typechain-types && rm -rf cache && rm -rf coverage && rm -f coverage.json",
     "up": "npm install && npx hardhat compile && npm run build && hardhat node",
