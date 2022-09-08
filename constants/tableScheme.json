@@ -2,15 +2,82 @@
   "tablesToCreate": [
     {
       "prefix": "AdSpace",
-      "schema": "id INTEGER, website TEXT, verified INTEGER, status TEXT, owner TEXT, contract TEXT, asking_price INTEGER, PRIMARY KEY (id)"
+      "schema": "adspace_id INTEGER PRIMARY KEY UNIQUE, website TEXT, verified INTEGER, status TEXT, owner TEXT, contract TEXT, asking_price INTEGER",
+      "schema_short": "adspace_id, website, verified, status, owner, contract, asking_price",
+      "fieldCount": 7,
+      "data": [
+        [
+          1,
+          "https://loremipsum1.org",
+          1,
+          "status sample text 1",
+          "0x0wner01",
+          "0xContract01",
+          100000
+        ],
+        [
+          2,
+          "https://loremipsum2.org",
+          1,
+          "status sample text 2",
+          "0x0wner01",
+          "0xContract02",
+          2000000
+        ],
+        [
+          3,
+          "https://loremipsum3.org",
+          0,
+          "status sample text 3",
+          "0x0wner02",
+          "0xContract03",
+          30000000
+        ],
+        [
+          4,
+          "https://loremipsum4.org",
+          0,
+          "status sample text 4",
+          "0x0wner03",
+          "0xContract04",
+          400000000
+        ],
+        [
+          5,
+          "https://loremipsum5.org",
+          1,
+          "status sample text 5",
+          "0x0wner04",
+          "0xContract05",
+          5000000000
+        ]
+      ]
     },
     {
       "prefix": "Deal",
-      "schema": "id INTEGER, campaign_id_fk INTEGER, adspace_id_fk INTEGER, duration_deal INTEGER, price INTEGER, started_at INTEGER, PRIMARY_KEY (id)"
+      "schema": "deal_id INTEGER PRIMARY KEY UNIQUE, campaign_id_fk INTEGER, adspace_id_fk INTEGER, duration_deal INTEGER, price INTEGER, started_at INTEGER",
+      "schema_short": "deal_id, campaign_id_fk, adspace_id_fk, duration_deal, price, started_at",
+      "fieldCount": 5,
+      "data": [
+        [1, 1, 1, 100, 10000],
+        [2, 1, 2, 200, 200000],
+        [3, 1, 5, 300, 3000000],
+        [4, 1, 1, 400, 40000000],
+        [5, 1, 2, 500, 500000000]
+      ]
     },
     {
       "prefix": "Campaign",
-      "schema": "id INTEGER, duration_campaign INTEGER, PRIMARY_KEY (id)"
+      "schema": "campaign_id INTEGER PRIMARY KEY UNIQUE, duration_campaign INTEGER",
+      "schema_short": "campaign_id, duration_campaign",
+      "fieldCount": 2,
+      "data": [
+        [1, 1000],
+        [2, 2000],
+        [3, 3000],
+        [4, 4000],
+        [5, 5000]
+      ]
     }
   ]
 }
