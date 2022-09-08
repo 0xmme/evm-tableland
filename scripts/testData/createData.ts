@@ -29,6 +29,7 @@ async function main() {
   const tableland: Connection = await connect({
     network: "testnet",
     chain: netOpKov,
+    // chain: netOpGoe,
     signer: account,
   });
 
