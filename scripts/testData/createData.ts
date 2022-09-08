@@ -8,32 +8,30 @@ import * as fs from "fs";
 async function main() {
   console.log(`\nCreating table on ${network.name}...`);
 
-  const netOpKov = "optimism-kovan";
-  // const netOpGoe = "optimism-goerli";
+  // const netOpKov = "optimism-kovan";
+  const netOpGoe = "optimism-goerli";
 
   const currentTablesFile: string = "constants/deployedTables.json";
   const tablesCreateFile: string = "constants/tableScheme.json";
   const tablesCreate = JSON.parse(fs.readFileSync(tablesCreateFile, "utf8"));
   const tablesToCreateCount = Object.keys(tablesCreate.tablesToCreate).length;
-  const provider = new ethers.providers.InfuraProvider(
-    network.name,
-    process.env.OPTIMISM_KOVAN_API_KEY!
-  );
-  // const provider = new ethers.providers.AlchemyProvider(
+  // const provider = new ethers.providers.InfuraProvider(
   //  network.name,
-  //  process.env.OPTIMISM_GOERLI_API_KEY!
+  //  process.env.OPTIMISM_KOVAN_API_KEY!
   // );
+  const provider = new ethers.providers.AlchemyProvider(
+    network.name,
+    process.env.OPTIMISM_GOERLI_API_KEY!
+  );
 
   const account = new Wallet(process.env.ETHEREUM_PRIVATE_KEY!, provider);
 
   const tableland: Connection = await connect({
     network: "testnet",
-    chain: netOpKov,
-    // chain: netOpGoe,
+    // chain: netOpKov,
+    chain: netOpGoe,
     signer: account,
   });
-
-  //  ${name} (${tablesCreate.tablesToCreate[i].schema_short}) VALUES (${tablesCreate.tablesToCreate[i].data[j]});`
 
   console.log("*************************************************");
   console.log(
@@ -68,7 +66,6 @@ async function main() {
       sqlStatement = sqlStatement
         .concat(`INSERT INTO `)
         .concat(`${name!}`)
-        // .concat(name!)
         .concat(` (${tablesCreate.tablesToCreate[i].schema_short}) `)
         .concat(`VALUES (`);
       for (let column = 0; column < dataColumnsToCreate; column++) {

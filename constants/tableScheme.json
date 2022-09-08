@@ -68,15 +68,15 @@
     },
     {
       "prefix": "Campaign",
-      "schema": "campaign_id INTEGER PRIMARY KEY UNIQUE, duration_campaign INTEGER",
-      "schema_short": "campaign_id, duration_campaign",
+      "schema": "campaign_id INTEGER PRIMARY KEY UNIQUE, cid TEXT, size TEXT, link TEXT",
+      "schema_short": "campaign_id, cid, size, link",
       "fieldCount": 2,
       "data": [
-        [1, 1000],
-        [2, 2000],
-        [3, 3000],
-        [4, 4000],
-        [5, 5000]
+        [1, "0xCid01", "wide", "https://01adspaces.testlink"],
+        [2, "0xCid02", "square", "https://02adspaces.testlink"],
+        [3, "0xCid03", "skyscraper", "https://03adspaces.testlink"],
+        [4, "0xCid04", "wide", "https://04adspaces.testlink"],
+        [5, "0xCid05", "skyscraper", "https://05adspaces.testlink"]
       ]
     }
   ]
