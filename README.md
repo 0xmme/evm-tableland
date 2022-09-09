@@ -30,23 +30,33 @@ npx hardhat compile
 npm run build
 ```
 
-## Deploying
+## Deployment
 
 Deployments are handled on a per-network basis:
 
-```shell
-npx hardhat run scripts/deploy.ts --network optimism-kovan
-```
+### Deploying Tables with data
 
-### Deploying Tables
-
-Tables can be deployed with the CreateTable.ts script.
+Tables can be deployed with the createData.ts script.
 
 ```shell
-npx hardhat run scripts/createTable.ts --network optimism-kovan
+npx hardhat run scripts/createData.ts --network optimism-goerli
 ```
 
-Refer to the `proxies` entry in `hardhat.config.js` for the list of current deployments.
+### Reading Tables
+
+Tables can be deployed with the readData.js script.
+
+```shell
+npx hardhat run scripts/readData.js --network optimism-goerli
+```
+
+### Deploying Contracts
+
+We don't need to deploy contracts for our testing on optimism-goerli, but for local testing, that's how:
+
+```shell
+npx hardhat run scripts/deploy.ts --network optimism-goerli
+```
 
 # License
 

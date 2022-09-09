@@ -1,24 +1,26 @@
 /* eslint-disable object-shorthand */
 /* eslint-disable no-unused-vars */
 import { ethers, network } from "hardhat";
-import { BigNumber, Wallet } from "ethers";
-import { connect, Connection } from "@tableland/sdk";
+import { Wallet } from "ethers";
+import { ChainName, connect, Connection } from "@tableland/sdk";
 import * as fs from "fs";
 
 async function main() {
   console.log(`\nCreating table on ${network.name}...`);
 
-  // const netOpKov = "optimism-kovan";
-  const netOpGoe = "optimism-goerli";
+  const networkConfig = {
+    testnet: "testnet",
+    chain: "optimism-goerli",
+    chainId: "420",
+  };
 
   const currentTablesFile: string = "constants/deployedTables.json";
+  const currentTables = JSON.parse(fs.readFileSync(currentTablesFile, "utf8"));
+  currentTables[networkConfig.chainId] = [];
   const tablesCreateFile: string = "constants/tableScheme.json";
   const tablesCreate = JSON.parse(fs.readFileSync(tablesCreateFile, "utf8"));
   const tablesToCreateCount = Object.keys(tablesCreate.tablesToCreate).length;
-  // const provider = new ethers.providers.InfuraProvider(
-  //  network.name,
-  //  process.env.OPTIMISM_KOVAN_API_KEY!
-  // );
+
   const provider = new ethers.providers.AlchemyProvider(
     network.name,
     process.env.OPTIMISM_GOERLI_API_KEY!
@@ -28,8 +30,7 @@ async function main() {
 
   const tableland: Connection = await connect({
     network: "testnet",
-    // chain: netOpKov,
-    chain: netOpGoe,
+    chain: networkConfig.chain! as ChainName,
     signer: account,
   });
 
@@ -97,7 +98,7 @@ async function main() {
 
     if (txnHash !== null) {
       updateContractAddresses(
-        currentTablesFile,
+        currentTables,
         tablesCreate.tablesToCreate[i].prefix,
         name!,
         tablesCreate.tablesToCreate[i].schema,
@@ -107,10 +108,13 @@ async function main() {
       );
     }
   }
+  fs.writeFileSync(currentTablesFile, JSON.stringify(currentTables));
+  console.log("*************************************************");
+  console.log(`Tables in JSON File written.`);
 }
 
 const updateContractAddresses = (
-  currentTablesFile: string,
+  currentTables: any[],
   prefix: string,
   name: string,
   schema: string,
@@ -118,7 +122,6 @@ const updateContractAddresses = (
   txnHash: string,
   data: any[]
 ) => {
-  const currentTables = JSON.parse(fs.readFileSync(currentTablesFile, "utf8"));
   currentTables[chainId].push({
     prefix: prefix,
     name: name,
@@ -127,10 +130,6 @@ const updateContractAddresses = (
     schema: schema,
     data: data,
   });
-
-  fs.writeFileSync(currentTablesFile, JSON.stringify(currentTables));
-  console.log("*************************************************");
-  console.log(`Table ${name} in JSON File written.`);
 };
 
 main().catch((error) => {
