@@ -10,8 +10,9 @@ async function main() {
   const tableland = require("@tableland/sdk");
   const fs = require("fs");
 
-  const tableDirectoryFile = "constants/deployedTables.json";
-  const tableDirectory = JSON.parse(fs.readFileSync(tableDirectoryFile));
+  const tableDirectory = JSON.parse(
+    fs.readFileSync("constants/deployedTables.json")
+  );
 
   const networkConfig = {
     testnet: "testnet",
@@ -22,8 +23,6 @@ async function main() {
   const testTableConfig = {
     name: "AdSpace",
   };
-
-  console.log(tableDirectory[networkConfig.chainId]);
 
   const tableToRead = tableDirectory[networkConfig.chainId].find(
     (elem) => elem.prefix === testTableConfig.name
@@ -38,9 +37,11 @@ async function main() {
 
   const tablelandConnection = await tableland.connect(networkConfig);
 
-  const { columns, rows } = await tablelandConnection.read(
+  const readQueryResult = await tablelandConnection.read(
     `SELECT * FROM ${tableToRead};`
   );
+
+  const { columns, rows } = readQueryResult;
 
   console.log("----columns-----");
   console.log(columns);
@@ -60,6 +61,15 @@ async function main() {
   console.log("------combined-output------");
   console.log(`${tableToRead} rowno ${rowNumtoFiddle}`);
   console.log(`${singleColName}:${singleCellData}`);
+
+  console.log("------array-output------");
+  const columnsFixed = columns.map((elem) => {
+    return { name: elem.name, accessor: elem.name };
+  });
+
+  const rowsFixed = tableland.resultsToObjects(readQueryResult);
+  console.log(columnsFixed);
+  console.log(rowsFixed);
 }
 
 main().catch((error) => {
