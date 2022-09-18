@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 /* eslint-disable object-shorthand */
 /* eslint-disable no-unused-vars */
 import { ethers, network } from "hardhat";
@@ -8,11 +9,25 @@ import * as fs from "fs";
 async function main() {
   console.log(`\nCreating table on ${network.name}...`);
 
+  //const networkConfig = {
+  //  testnet: "testnet",
+  //  chain: "optimism-goerli",
+  //  chainId: "420",
+  //};
+  //const provider = new ethers.providers.AlchemyProvider(
+  //  network.name,
+  //  process.env.OPTIMISM_GOERLI_API_KEY!
+  //);
+
   const networkConfig = {
     testnet: "testnet",
-    chain: "optimism-goerli",
-    chainId: "420",
+    chain: "ethereum-goerli",
+    chainId: "5",
   };
+  const provider = new ethers.providers.JsonRpcProvider(
+    `https://eth-goerli.alchemyapi.io/v2/${process.env
+      .OPTIMISM_GOERLI_API_KEY!}`
+  );
 
   const currentTablesFile: string = "constants/deployedTables.json";
   const currentTables = JSON.parse(fs.readFileSync(currentTablesFile, "utf8"));
@@ -20,11 +35,6 @@ async function main() {
   const tablesCreateFile: string = "constants/tableScheme.json";
   const tablesCreate = JSON.parse(fs.readFileSync(tablesCreateFile, "utf8"));
   const tablesToCreateCount = Object.keys(tablesCreate.tablesToCreate).length;
-
-  const provider = new ethers.providers.AlchemyProvider(
-    network.name,
-    process.env.OPTIMISM_GOERLI_API_KEY!
-  );
 
   const account = new Wallet(process.env.ETHEREUM_PRIVATE_KEY!, provider);
 
@@ -55,7 +65,7 @@ async function main() {
     console.log(`Table ${name} on ${network.name} created.`);
 
     console.log("*************************************************");
-    console.log(`Trying to write data into'${name}'`);
+    console.log(`Trying to write data into '${name}'`);
 
     const dataRowsToCreate = tablesCreate.tablesToCreate[i].data.length;
     const dataColumnsToCreate = tablesCreate.tablesToCreate[i].fieldCount;

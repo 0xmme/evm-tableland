@@ -8,58 +8,38 @@ async function main() {
   // env settings, what table to fetch, which data for selected log below....
 
   const tableland = require("@tableland/sdk");
-  const fs = require("fs");
-
-  const tableDirectory = JSON.parse(
-    fs.readFileSync("constants/deployedTables.json")
-  );
-
-  //const networkConfig = {
-  //  testnet: "testnet",
-  //  chain: "optimism-goerli",
-  //  chainId: "420",
-  //};
 
   const networkConfig = {
-    testnet: "testnet",
-    chain: "ethereum-goerli",
-    chainId: "5",
+    name: "localhost",
+    chain: "local-tableland",
+    host: "http://localhost:8545/",
   };
-  //const testTableConfig = {
-  //  name: "AdSpace",
-  //};
 
-  //const tableToRead = tableDirectory[networkConfig.chainId].find(
-  //  (elem) => elem.prefix === testTableConfig.name
-  //).name;
-  //console.log(tableToRead);
+  const tableToRead = "AdSpaces_31337_0";
 
-  const tableToRead = "AdSpaces_5_743";
-  //const tableToRead = "Campaign_420_77";
-  //const tableToRead = "Deal_420_76";
-  const colNumToFiddle = 0;
-  const rowNumtoFiddle = 0;
-
-  console.log(
-    `Trying to read table '${tableToRead}' on '${networkConfig.chain}'`
-  );
+  console.log(`Trying to read table '${tableToRead}' on 'localhost'`);
 
   const tablelandConnection = await tableland.connect(networkConfig);
+
+  console.log(tablelandConnection);
+
+  //const readQueryResult = await tablelandConnection.list();
 
   const readQueryResult = await tablelandConnection.read(
     `SELECT * FROM ${tableToRead};`
   );
 
-  const { columns, rows } = readQueryResult;
+  console.log(readQueryResult);
+  //const { columns, rows } = readQueryResult;
 
-  console.log("----columns-----");
-  console.log(columns);
+  //console.log("----columns-----");
+  //console.log(columns);
   //console.log("----single-col-name----");
   //const singleColName = columns[colNumToFiddle].name;
   //console.log(singleColName);
 
-  console.log("------rows------");
-  console.log(rows);
+  //console.log("------rows------");
+  //console.log(rows);
   //console.log("----single-row----");
   //const singleRowData = rows[colNumToFiddle];
   //console.log(singleRowData);

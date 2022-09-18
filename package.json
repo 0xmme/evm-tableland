@@ -86,6 +86,7 @@
     "ethers": "^5.6.9",
     "hardhat": "^2.9.9",
     "hardhat-contract-sizer": "^2.6.1",
+    "hardhat-deploy": "^0.11.15",
     "hardhat-gas-reporter": "^1.0.8",
     "prettier": "^2.7.1",
     "prettier-plugin-solidity": "^1.0.0-beta.19",
