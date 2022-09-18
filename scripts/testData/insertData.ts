@@ -48,26 +48,34 @@ async function main() {
   console.log(`Trying to write data into'${tableToInsert}'`);
 
   let sqlStatement = "";
+  //sqlStatement = sqlStatement.concat(
+  //  "INSERT INTO ",
+  //  tableToInsert,
+  //  " (name,website,verified,status,owner,contract,asking_price,size) VALUES (",
+  //  "'BlackPearl2'",
+  //  ",",
+  //  "'blackpearl2.com'",
+  //  ",",
+  //  "'0'", //verified
+  //  ",",
+  //  "'Pending Verification'", // status
+  //  ",",
+  //  `'${account.address.toString()}'`, // owner
+  //  ",",
+  //  "'0xd2B4fB3a8e01beFfe215C351e7e07df55C1A293e'", // contract
+  //  ",",
+  //  "'700'",
+  //  ",",
+  //  "'wide'",
+  //  ");"
+  //);
+
   sqlStatement = sqlStatement.concat(
-    "INSERT INTO ",
+    "UPDATE ",
     tableToInsert,
-    " (name,website,verified,status,owner,contract,asking_price,size) VALUES (",
-    "'BlackPearl2'",
-    ",",
-    "'blackpearl2.com'",
-    ",",
-    "'0'", //verified
-    ",",
-    "'Pending Verification'", // status
-    ",",
-    `'${account.address.toString()}'`, // owner
-    ",",
-    "'0xd2B4fB3a8e01beFfe215C351e7e07df55C1A293e'", // contract
-    ",",
-    "'700'",
-    ",",
-    "'wide'",
-    ");"
+    " SET status ='Running Ads' WHERE adspace_id = '",
+    "1",
+    "';"
   );
 
   const { hash: writeHash } = await tableland.write(sqlStatement);

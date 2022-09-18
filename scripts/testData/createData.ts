@@ -9,25 +9,25 @@ import * as fs from "fs";
 async function main() {
   console.log(`\nCreating table on ${network.name}...`);
 
-  //const networkConfig = {
-  //  testnet: "testnet",
-  //  chain: "optimism-goerli",
-  //  chainId: "420",
-  //};
-  //const provider = new ethers.providers.AlchemyProvider(
-  //  network.name,
-  //  process.env.OPTIMISM_GOERLI_API_KEY!
-  //);
-
   const networkConfig = {
     testnet: "testnet",
-    chain: "ethereum-goerli",
-    chainId: "5",
+    chain: "optimism-goerli",
+    chainId: "420",
   };
-  const provider = new ethers.providers.JsonRpcProvider(
-    `https://eth-goerli.alchemyapi.io/v2/${process.env
-      .OPTIMISM_GOERLI_API_KEY!}`
+  const provider = new ethers.providers.AlchemyProvider(
+    network.name,
+    process.env.OPTIMISM_GOERLI_API_KEY!
   );
+
+  //const networkConfig = {
+  //  testnet: "testnet",
+  //  chain: "ethereum-goerli",
+  //  chainId: "5",
+  //};
+  //const provider = new ethers.providers.JsonRpcProvider(
+  //  `https://eth-goerli.alchemyapi.io/v2/${process.env
+  //    .OPTIMISM_GOERLI_API_KEY!}`
+  //);
 
   const currentTablesFile: string = "constants/deployedTables.json";
   const currentTables = JSON.parse(fs.readFileSync(currentTablesFile, "utf8"));

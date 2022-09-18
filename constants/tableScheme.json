@@ -73,15 +73,15 @@
     },
     {
       "prefix": "Campaigns",
-      "schema": "campaign_id INTEGER PRIMARY KEY, cid TEXT, size TEXT, link TEXT",
-      "schema_short": "cid, size, link",
-      "fieldCount": 3,
+      "schema": "campaign_id INTEGER PRIMARY KEY, cid TEXT, size TEXT, link TEXT, owner TEXT",
+      "schema_short": "cid, size, link, owner",
+      "fieldCount": 4,
       "data": [
-        ["0xCid01", "wide", "https://01adspaces.testlink"],
-        ["0xCid02", "square", "https://02adspaces.testlink"],
-        ["0xCid03", "skyscraper", "https://03adspaces.testlink"],
-        ["0xCid04", "wide", "https://04adspaces.testlink"],
-        ["0xCid05", "skyscraper", "https://05adspaces.testlink"]
+        ["0xCid01", "wide", "https://01adspaces.testlink", "0x0"],
+        ["0xCid02", "square", "https://02adspaces.testlink", "0x0"],
+        ["0xCid03", "skyscraper", "https://03adspaces.testlink", "0x0"],
+        ["0xCid04", "wide", "https://04adspaces.testlink", "0x0"],
+        ["0xCid05", "skyscraper", "https://05adspaces.testlink", "0x0"]
       ]
     }
   ]
