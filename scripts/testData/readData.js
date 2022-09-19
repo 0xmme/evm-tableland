@@ -26,7 +26,7 @@ async function main() {
   //  chainId: "5",
   //};
 
-  const tableToRead = "AdSpaces_420_79";
+  const tableToRead = "AdSpaces_420_88";
 
   const colNumToFiddle = 0;
   const rowNumtoFiddle = 0;
