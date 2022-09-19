@@ -14,29 +14,20 @@ async function main() {
     fs.readFileSync("constants/deployedTables.json")
   );
 
-  //const networkConfig = {
-  //  testnet: "testnet",
-  //  chain: "optimism-goerli",
-  //  chainId: "420",
-  //};
-
   const networkConfig = {
     testnet: "testnet",
-    chain: "ethereum-goerli",
-    chainId: "5",
+    chain: "optimism-goerli",
+    chainId: "420",
   };
-  //const testTableConfig = {
-  //  name: "AdSpace",
+
+  //const networkConfig = {
+  //  testnet: "testnet",
+  //  chain: "ethereum-goerli",
+  //  chainId: "5",
   //};
 
-  //const tableToRead = tableDirectory[networkConfig.chainId].find(
-  //  (elem) => elem.prefix === testTableConfig.name
-  //).name;
-  //console.log(tableToRead);
+  const tableToRead = "AdSpaces_420_79";
 
-  const tableToRead = "AdSpaces_5_743";
-  //const tableToRead = "Campaign_420_77";
-  //const tableToRead = "Deal_420_76";
   const colNumToFiddle = 0;
   const rowNumtoFiddle = 0;
 
