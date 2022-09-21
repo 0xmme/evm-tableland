@@ -26,7 +26,7 @@ async function main() {
   //  chainId: "5",
   //};
 
-  const tableToRead = "AdSpaces_420_88";
+  const tableToRead = "Campaigns_420_89";
 
   const colNumToFiddle = 0;
   const rowNumtoFiddle = 0;
@@ -38,6 +38,8 @@ async function main() {
   const tablelandConnection = await tableland.connect(networkConfig);
 
   const readQueryResult = await tablelandConnection.read(
+    //`SELECT count(campaign_id) as countID FROM ${tableToRead};`
+
     `SELECT * FROM ${tableToRead};`
   );
 
