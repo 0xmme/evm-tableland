@@ -22,6 +22,10 @@ async function main() {
     process.env.OPTIMISM_GOERLI_API_KEY!
   );
 
+  const JSONprovider = new ethers.providers.JsonRpcProvider(
+    `https://flashy-omniscient-slug.optimism-goerli.discover.quiknode.pro/7a2fdffa24bf4fd891bd9c77fdaa6325b0041dbb/`
+  );
+
   //const networkConfig = {
   //  testnet: "testnet",
   //  chain: "ethereum-goerli",
@@ -32,17 +36,17 @@ async function main() {
   //    .OPTIMISM_GOERLI_API_KEY!}`
   //);
 
-  const account = new Wallet(process.env.ETHEREUM_PRIVATE_KEY!, provider);
+  const account = new Wallet(process.env.ETHEREUM_PRIVATE_KEY!, JSONprovider);
   const AdSpaceFactory = new ethers.Contract(address, abi, account);
   const AdSpaceTable = await AdSpaceFactory.getAdSpaceTable();
   console.log(`AdSpace Tableland table is ${AdSpaceTable}`);
 
   const tx = await AdSpaceFactory.createAdSpace(
-    "test2",
-    "test2.2222",
-    "0.55",
+    "test3",
+    "test3.3333",
+    "0.56",
     5,
-    "wide"
+    "Skyscraper"
   );
 
   console.log(tx);
