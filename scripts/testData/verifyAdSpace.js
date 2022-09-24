@@ -18,6 +18,7 @@ async function main() {
     chain: "optimism-goerli",
     chainId: "420",
   };
+
   const provider = new ethers.providers.AlchemyProvider(
     network.name,
     process.env.OPTIMISM_GOERLI_API_KEY
@@ -47,7 +48,7 @@ async function main() {
   //  `Connected on ${tableland.options.chain} with ${tableland.options.contract}`
   //);
 
-  const tableToInsert = "AdSpaces_420_100";
+  const tableToInsert = "AdSpaces_420_107";
   const AdSpaceToUpdate = "1";
 
   const tx = await AdSpaceFactory.verifyAdSpace(AdSpaceToUpdate);

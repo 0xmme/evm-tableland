@@ -8,11 +8,11 @@ async function main() {
   // env settings, what table to fetch, which data for selected log below....
 
   const tableland = require("@tableland/sdk");
-  const fs = require("fs");
+  //const fs = require("fs");
 
-  const tableDirectory = JSON.parse(
-    fs.readFileSync("constants/deployedTables.json")
-  );
+  //const tableDirectory = JSON.parse(
+  //  fs.readFileSync("constants/deployedTables.json")
+  //);
 
   const networkConfig = {
     testnet: "testnet",
@@ -26,30 +26,32 @@ async function main() {
   //  chainId: "5",
   //};
 
-  const tableToRead = "AdSpaces_420_100";
+  const tableToRead = "AdSpaces_420_111";
+  const tableToRead2 = "Campaigns_420_112";
+  const tableToRead3 = "Deals_420_113";
 
-  const colNumToFiddle = 0;
-  const rowNumtoFiddle = 0;
+  //const colNumToFiddle = 0;
+  //const rowNumtoFiddle = 0;
 
   console.log(
-    `Trying to read table '${tableToRead}' on '${networkConfig.chain}'`
+    `Trying to read table '${tableToRead2}' on '${networkConfig.chain}'`
   );
 
   const tablelandConnection = await tableland.connect(networkConfig);
 
   const readQueryResult = await tablelandConnection.read(
-    //`SELECT count(campaign_id) as countID FROM ${tableToRead};`
+    `SELECT * FROM ${tableToRead2};`
 
-    `SELECT * FROM ${tableToRead};`
+    //`SELECT ${tableToRead}.name as AdSpaceName, ${tableToRead3}.price,${tableToRead3}.started_at, ${tableToRead3}.end_at,${tableToRead2}.name as CampaignName, ${tableToRead2}.cid FROM ${tableToRead} INNER JOIN ${tableToRead3}  INNER JOIN ${tableToRead2} WHERE adspace_id = adspace_id_fk AND campaign_id = campaign_id_fk;`
   );
 
   const { columns, rows } = readQueryResult;
 
   console.log("----columns-----");
   console.log(columns);
-  //console.log("----single-col-name----");
-  //const singleColName = columns[colNumToFiddle].name;
-  //console.log(singleColName);
+  ////console.log("----single-col-name----");
+  ////const singleColName = columns[colNumToFiddle].name;
+  ////console.log(singleColName);
 
   console.log("------rows------");
   console.log(rows);
@@ -70,8 +72,8 @@ async function main() {
   //});
 
   //const rowsFixed = tableland.resultsToObjects(readQueryResult);
-  //console.log(columnsFixed);
-  //console.log(rowsFixed);
+  ////console.log(columnsFixed);
+  //console.log(rowsFixed[0].verified);
 }
 
 main().catch((error) => {
