@@ -34,15 +34,18 @@ async function main() {
   //const rowNumtoFiddle = 0;
 
   console.log(
-    `Trying to read table '${tableToRead2}' on '${networkConfig.chain}'`
+    `Trying to read table '${tableToRead}' on '${networkConfig.chain}'`
   );
 
   const tablelandConnection = await tableland.connect(networkConfig);
 
   const readQueryResult = await tablelandConnection.read(
-    `SELECT * FROM ${tableToRead2};`
-
-    //`SELECT ${tableToRead}.name as AdSpaceName, ${tableToRead3}.price,${tableToRead3}.started_at, ${tableToRead3}.end_at,${tableToRead2}.name as CampaignName, ${tableToRead2}.cid FROM ${tableToRead} INNER JOIN ${tableToRead3}  INNER JOIN ${tableToRead2} WHERE adspace_id = adspace_id_fk AND campaign_id = campaign_id_fk;`
+    `SELECT deal_id, ${tableToRead}.name as adspace_name, ${tableToRead2}.name as campaign_name, price, started_at FROM ${tableToRead3}
+    INNER JOIN ${tableToRead}
+    INNER JOIN ${tableToRead2}
+    WHERE adspace_id_fk = adspace_id
+    AND campaign_id_fk = campaign_id
+    order by started_at DESC;`
   );
 
   const { columns, rows } = readQueryResult;

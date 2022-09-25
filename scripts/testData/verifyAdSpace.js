@@ -48,8 +48,8 @@ async function main() {
   //  `Connected on ${tableland.options.chain} with ${tableland.options.contract}`
   //);
 
-  const tableToInsert = "AdSpaces_420_107";
-  const AdSpaceToUpdate = "1";
+  //const tableToInsert = "AdSpaces_420_141";
+  const AdSpaceToUpdate = "3";
 
   const tx = await AdSpaceFactory.verifyAdSpace(AdSpaceToUpdate);
   console.log(tx);
